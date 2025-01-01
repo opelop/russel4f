@@ -1,0 +1,378 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스케줄 외 특이사항 & 교육점수 기록표</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+    
+        h1 {
+            color: #336699;
+            text-align: center;
+            font-size : 30px;
+        }
+        
+        h2 {
+            color: #b7340c;
+            text-align: center;
+            font-size : 30px;
+        }
+    
+        .form-container {
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 45%; /* 적절한 너비로 설정 */
+        font-size: 1.2em;
+        box-sizing: border-box; /* ensure padding is included in width/height */
+    }
+
+        .form-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px; /* increased margin-bottom */
+        }
+    
+        select {
+            width: 50%;
+            padding: 15px;
+            margin-bottom: 10px;
+            font-size: 1em; /* increased font size */
+            border: 5px solid #ccc;;
+            border-radius: 3px;
+        }
+        
+        button {
+            padding: 12px 20px; /* increased padding */
+            background-color: #336699;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em; /* increased font size */
+        }
+    
+        #resetButton {
+            margin-bottom: 10px;
+            float :left;
+        }
+        
+        table {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 600px) {
+            form {
+                width: 100%; /* form takes full width on small screens */
+            }
+
+            select {
+                padding: 15px;
+                font-size: 1em; /* maintain increased font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="resetButton" onclick="resetTable()">테이블 초기화</button>
+    <div class="form-wrapper">
+    <form id="moveForm1" class="form-container">
+    <h1>스케줄 외 특이사항</h1>
+        <label for="building1">관:</label>
+        <select id="building1" required="">
+            <option value="">선택하세요</option>
+            <option value="4-1관">4-1관</option>
+            <option value="4-2관">4-2관</option>
+            <option value="4-3관">4-3관</option>
+            <option value="4-4관">4-4관</option>
+            <option value="4-5관">4-5관</option>
+        </select><br />
+        <label for="seatNumber1">좌석번호:</label>
+        <select id="seatNumber1_1" required="">
+            <option value="">선택하세요</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+        </select>
+
+        <select id="seatNumber1_2" required="">
+            <option value="">선택하세요</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+        </select><br />
+
+        <label for="returnTime1">복귀교시:</label>
+        <select id="returnTime1" required="">
+            <option value="">선택하세요</option>
+            <option value="2">2교시</option>
+            <option value="3">3교시</option>
+            <option value="4">4교시</option>
+            <option value="5">5교시</option>
+            <option value="6">6교시</option>
+            <option value="7">7교시</option>
+            <option value="8">8교시</option>
+            <option value="복귀안함">복귀안함</option>
+        </select><br />
+
+        <label for="reason1">사유:</label>
+        <select id="reason1" required="">
+            <optgroup label="이동사유">
+                <option value="">선택하세요</option>
+                <option value="화장실/정수기">화장실/정수기</option>
+                <option value="튜터">튜터 질의응답</option>
+                <option value="학원보강(외부)">학원보강(외부)</option>
+                <option value="학원보강(내부)">학원보강(내부)</option>
+                <option value="자료수령">자료수령</option>
+                <option value="개인사정">개인사정</option>
+                <option value="가족행사">가족행사</option>
+                <option value="병원">병원</option>
+                <option value="컨디션난조">컨디션난조</option>
+        </select><br />
+        
+        <button type="submit">제출</button>
+    </form>
+
+    <form id="moveForm2" class="form-container">
+        <h2>교육점수 기록표</h2>
+        <label for="building2">관:</label>
+        <select id="building2" required="">
+            <option value="">선택하세요</option>
+            <option value="4-1관">4-1관</option>
+            <option value="4-2관">4-2관</option>
+            <option value="4-3관">4-3관</option>
+            <option value="4-4관">4-4관</option>
+            <option value="4-5관">4-5관</option>
+        </select><br />
+        <label for="seatNumber2">좌석번호:</label>
+        <select id="seatNumber2_1" required="">
+            <option value="">선택하세요</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+        </select>
+        <select id="seatNumber2_2" required="">
+            <option value="">선택하세요</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+        </select><br />
+
+        <label for="defaultValue">교육점수:</label>
+        <select id="defaultValue">
+            <option value="교육점수">교육점수</option>
+        </select><br />
+
+
+        <label for="reason2">사유:</label>
+        <select id="reason2" required="">
+            <optgroup label="교육점수">
+                <option value="지각">지각</option>
+                <option value="취침">취침</option>
+                <option value="입실시간 미준수">입실시간 미준수</option>
+                <option value="자습 중 외부이동">자습 중 외부이동</option>
+                <option value="전자기기">전자기기</option>
+                <option value="무단이탈/결석">무단이탈/결석</option>
+                <option value="원내대화">원내대화</option>
+                <option value="타관 무단출입">타관 무단출입</option>
+                <option value="2교시 이후 지각">2교시 이후 지각</option>
+                <option value="모의고사 미응시">모의고사 미응시</option>
+
+
+        </select><br />
+        
+        <button type="submit">제출</button>
+    </form>
+        </div>
+    <div id="result">
+        <table id="moveList1" border="1">
+            <thead>
+                <tr>
+                    <th>관</th>
+                    <th>좌석번호</th>
+                    <th>복귀교시</th>
+                    <th>이동사유</th>
+                    <th>입력날짜</th>
+                    <th>입력시간</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table id="moveList2" border="1">
+            <thead>
+                <tr>
+                    <th>관</th>
+                    <th>좌석번호</th>
+                    <th>비고</th>
+                    <th>교육점수내용</th>
+                    <th>입력날짜</th>
+                    <th>입력시간</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let moveList1 = [];
+        let moveList2 = [];
+
+        function refreshMoveList1() {
+            const tableBody = document.querySelector("#moveList1 tbody");
+            tableBody.innerHTML = "";
+
+            moveList1.forEach((moveData) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${moveData.building}</td>
+                    <td>${moveData.seatNumber}</td>
+                    <td>${moveData.returnTime}교시</td>
+                    <td>${moveData.reason}</td>
+                    <td>${moveData.inputDate}</td>
+                    <td>${moveData.inputTime}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function refreshMoveList2() {
+            const tableBody = document.querySelector("#moveList2 tbody");
+            tableBody.innerHTML = "";
+
+            moveList2.forEach((moveData) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${moveData.building}</td>
+                    <td>${moveData.seatNumber}</td>
+                    <td>${moveData.defaultValue}</td>
+                    <td>${moveData.reason}</td>
+                    <td>${moveData.inputDate}</td>
+                    <td>${moveData.inputTime}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.getElementById("moveForm1").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const building = document.getElementById("building1").value;
+            const seatNumber = document.getElementById("seatNumber1_1").value + document.getElementById("seatNumber1_2").value;
+            const returnTime = document.getElementById("returnTime1").value;
+            const reason = document.getElementById("reason1").value;
+            const moveData = {
+                building: building,
+                seatNumber: seatNumber,
+                returnTime: returnTime,
+                reason: reason
+            };
+
+            const now = new Date();
+            moveData.inputDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+            moveData.inputTime = `${now.getHours()}:${now.getMinutes()}`;
+
+            moveList1.push(moveData);
+
+            refreshMoveList1();
+
+            document.getElementById("moveForm1").reset();
+
+            // POST request를 보냄
+            fetch('https://script.google.com/macros/s/AKfycbwXPofHcqct_du5XF0hIMCj1kORDRFE-T3aiqdDj6y5hyXTNf0566yvyhc8zcEDyGm1/exec', {
+                method: 'POST',
+                body: JSON.stringify(moveData)
+            });
+        });
+
+        document.getElementById("moveForm2").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const building = document.getElementById("building2").value;
+            const seatNumber = document.getElementById("seatNumber2_1").value + document.getElementById("seatNumber2_2").value;
+            const defaultValue = document.getElementById("defaultValue").value;
+            const reason = document.getElementById("reason2").value;
+
+            const moveData = {
+                building: building,
+                seatNumber: seatNumber,
+                defaultValue : defaultValue,
+                reason: reason
+            };
+
+            const now = new Date();
+            moveData.inputDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+            moveData.inputTime = `${now.getHours()}:${now.getMinutes()}`;
+
+            moveList2.push(moveData);
+
+            refreshMoveList2();
+
+            document.getElementById("moveForm2").reset();
+
+            // POST request를 보냄
+            fetch('https://script.google.com/macros/s/AKfycbwXPofHcqct_du5XF0hIMCj1kORDRFE-T3aiqdDj6y5hyXTNf0566yvyhc8zcEDyGm1/exec', {
+                method: 'POST',
+                body: JSON.stringify(moveData)
+            });
+        });
+
+        function resetTable() {
+            moveList1 = [];
+            moveList2 = [];
+            refreshMoveList1();
+            refreshMoveList2();
+        }
+    </script>
+</body>
+</html>
