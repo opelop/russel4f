@@ -322,7 +322,7 @@
             moveData.inputDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
             moveData.inputTime = `${now.getHours()}:${now.getMinutes()}`;
 
-            moveList1.push(moveData);
+            moveList1.unshift(moveData);
 
             refreshMoveList1();
 
@@ -354,7 +354,7 @@
             moveData.inputDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
             moveData.inputTime = `${now.getHours()}:${now.getMinutes()}`;
 
-            moveList2.push(moveData);
+            moveList2.unshift(moveData);
 
             refreshMoveList2();
 
